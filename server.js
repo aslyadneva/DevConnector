@@ -4,7 +4,11 @@ const connectDB = require('./config/db')
 const app = express();
 
 // Connect Database 
-connectDB()
+connectDB(); 
+
+// Init Middleware
+// this allows us to get the data from req.body
+app.use(express.json({ extended: false }))
 
 app.get('/', (req, res) => res.send('API Running'))
 
